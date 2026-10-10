@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG Competitor Analyzer v1.5 - AI Presentation</title>
+    <title>RAG Competitor Analyzer v1.6 - AI Presentation</title>
     <style>
         * {
             margin: 0;
@@ -30,7 +29,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image:
+            background-image: 
                 linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -39,13 +38,8 @@
         }
 
         @keyframes gridMove {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(50px, 50px);
-            }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         /* Светящиеся орбы на фоне */
@@ -87,19 +81,9 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            33% {
-                transform: translate(30px, -30px) scale(1.1);
-            }
-
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
         /* Контейнер презентации */
@@ -135,7 +119,7 @@
         }
 
         .slide-content {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             text-align: left;
             position: relative;
@@ -158,15 +142,8 @@
         }
 
         @keyframes glow {
-
-            0%,
-            100% {
-                filter: brightness(1);
-            }
-
-            50% {
-                filter: brightness(1.3);
-            }
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
         }
 
         h2 {
@@ -189,8 +166,7 @@
             box-shadow: 0 0 10px #00ffff;
         }
 
-        p,
-        li {
+        p, li {
             font-size: 1.3rem;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -222,17 +198,8 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            }
-
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
         }
 
         .author-block {
@@ -254,13 +221,11 @@
         }
 
         /* Списки */
-        .feature-list,
-        .steps-list {
+        .feature-list, .steps-list {
             list-style: none;
         }
 
-        .feature-list li,
-        .steps-list li {
+        .feature-list li, .steps-list li {
             margin-bottom: 25px;
             padding: 15px 20px;
             background: rgba(255, 255, 255, 0.03);
@@ -269,8 +234,7 @@
             transition: all 0.3s ease;
         }
 
-        .feature-list li:hover,
-        .steps-list li:hover {
+        .feature-list li:hover, .steps-list li:hover {
             background: rgba(0, 255, 255, 0.05);
             transform: translateX(10px);
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
@@ -317,30 +281,19 @@
         }
 
         @keyframes arrowPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: translateX(10px);
-            }
+            0%, 100% { opacity: 1; transform: translateX(0); }
+            50% { opacity: 0.6; transform: translateX(10px); }
         }
 
         /* Сетки */
-        .architecture-grid,
-        .challenges-grid {
+        .architecture-grid, .challenges-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-top: 30px;
         }
 
-        .arch-box,
-        .challenge {
+        .arch-box, .challenge {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             padding: 25px;
             border-radius: 12px;
@@ -350,8 +303,7 @@
             overflow: hidden;
         }
 
-        .arch-box::before,
-        .challenge::before {
+        .arch-box::before, .challenge::before {
             content: '';
             position: absolute;
             top: 0;
@@ -362,13 +314,11 @@
             transition: left 0.5s ease;
         }
 
-        .arch-box:hover::before,
-        .challenge:hover::before {
+        .arch-box:hover::before, .challenge:hover::before {
             left: 100%;
         }
 
-        .arch-box:hover,
-        .challenge:hover {
+        .arch-box:hover, .challenge:hover {
             border-color: #00ffff;
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
             transform: translateY(-5px);
@@ -480,6 +430,206 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
+        /* ============ НОВЫЕ СТИЛИ ДЛЯ СЛАЙДОВ ЭКСПЕРИМЕНТОВ ============ */
+        
+        /* Таблица экспериментов */
+        .experiments-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-top: 25px;
+            font-size: 1rem;
+        }
+
+        .experiments-table th {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(168, 85, 247, 0.15));
+            color: #00ffff;
+            padding: 15px 12px;
+            text-align: left;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .experiments-table th:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .experiments-table th:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .experiments-table td {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experiments-table tr:hover td {
+            background: rgba(0, 255, 255, 0.05);
+            transform: scale(1.01);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .experiments-table td:first-child {
+            border-radius: 8px 0 0 8px;
+            font-weight: bold;
+            color: #a855f7;
+        }
+
+        .experiments-table td:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Метрики */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(168, 85, 247, 0.08));
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .metric-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: #00ffff;
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+        }
+
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-sublabel {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Сравнение до/после */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .comparison-box {
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-box.before {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 107, 107, 0.03));
+            border: 2px solid rgba(255, 107, 107, 0.4);
+        }
+
+        .comparison-box.after {
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.1), rgba(168, 230, 207, 0.03));
+            border: 2px solid rgba(168, 230, 207, 0.4);
+        }
+
+        .comparison-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .comparison-box.before:hover {
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .comparison-box.after:hover {
+            box-shadow: 0 10px 30px rgba(168, 230, 207, 0.3);
+        }
+
+        .comparison-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-box.before .comparison-title {
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .comparison-box.after .comparison-title {
+            color: #a8e6cf;
+            text-shadow: 0 0 10px rgba(168, 230, 207, 0.5);
+        }
+
+        .comparison-box ul {
+            list-style: none;
+        }
+
+        .comparison-box ul li {
+            padding: 8px 0;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-box.before ul li::before {
+            content: '❌ ';
+        }
+
+        .comparison-box.after ul li::before {
+            content: '✅ ';
+        }
+
         /* Навигация */
         .nav-arrows {
             position: fixed;
@@ -536,41 +686,34 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .architecture-grid,
-            .challenges-grid,
-            .tech-stack {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .architecture-grid, .challenges-grid, .tech-stack, .metrics-grid, .comparison-grid {
                 grid-template-columns: 1fr;
             }
-
             .flow-diagram {
                 flex-direction: column;
             }
-
             .flow-arrow {
                 transform: rotate(90deg);
             }
-
             .nav-arrows {
                 right: 20px;
             }
-
             .nav-arrow {
                 width: 45px;
                 height: 45px;
                 font-size: 1.3rem;
             }
+            .metric-number {
+                font-size: 2.5rem;
+            }
+            .experiments-table {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
-
 <body>
 
     <!-- Светящиеся орбы -->
@@ -580,11 +723,11 @@
 
     <!-- Контейнер презентации -->
     <div class="presentation-container">
-
+        
         <!-- СЛАЙД 1: Титульный -->
         <div class="slide active" id="slide-1">
             <div class="slide-content">
-                <div class="badge">v1.5</div>
+                <div class="badge">v1.6</div>
                 <h1>RAG Competitor Analyzer</h1>
                 <h2>Автоматизированный AI-пайплайн для глубокого анализа конкурентов с генерацией PDF-отчётов</h2>
                 <div class="author-block">
@@ -599,12 +742,9 @@
             <div class="slide-content">
                 <h2>🎯 Проблема</h2>
                 <ul class="feature-list">
-                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение,
-                        структурирование).</li>
-                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.
-                    </li>
-                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не
-                        адаптированы под специфические ниши.</li>
+                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение, структурирование).</li>
+                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.</li>
+                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не адаптированы под специфические ниши.</li>
                 </ul>
             </div>
         </div>
@@ -613,8 +753,7 @@
         <div class="slide" id="slide-3">
             <div class="slide-content">
                 <h2>💡 Наше решение</h2>
-                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты
-                    и генерирует структурированный бизнес-отчёт.</p>
+                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты и генерирует структурированный бизнес-отчёт.</p>
                 <div class="flow-diagram">
                     <div class="flow-item">Запрос (Ниша + Гео + Детали)</div>
                     <div class="flow-arrow">➔</div>
@@ -644,8 +783,7 @@
                 <h2>⚙️ Этапы RAG-пайплайна</h2>
                 <ol class="steps-list">
                     <li><strong>🔍 Поиск:</strong> Каскадный поиск (Serper.dev → DuckDuckGo → Fallback).</li>
-                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.
-                    </li>
+                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.</li>
                     <li><strong>🧠 Анализ:</strong> Отправка очищенных данных в LLM со строгим системным промтом.</li>
                     <li><strong>📄 Экспорт:</strong> Рендеринг отчёта в PDF с полной поддержкой кириллицы.</li>
                 </ol>
@@ -659,23 +797,19 @@
                 <div class="challenges-grid">
                     <div class="challenge">
                         <h3>❌ Блокировки поисковиков (403, Ratelimit)</h3>
-                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search
-                            API).</p>
+                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search API).</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Блокировки парсинга (HTTP 403)</h3>
-                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка
-                            под Chrome 110.</p>
+                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка под Chrome 110.</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Галлюцинации LLM (выдумка конкурентов)</h3>
-                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до
-                            <strong>0.2</strong>.</p>
+                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до <strong>0.2</strong>.</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Квадратики (■■■■) вместо русского текста в PDF</h3>
-                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong>
-                            через ReportLab.</p>
+                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong> через ReportLab.</p>
                     </div>
                 </div>
             </div>
@@ -689,18 +823,139 @@
                 <div class="demo-box">
                     <p><em>Пример из отчёта по нише "Кофейни с веганскими десертами":</em></p>
                     <blockquote>
-                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты:
-                        <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское
-                        меню)."
+                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты: <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское меню)."
                     </blockquote>
-                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды
-                        автомобилей).</p>
+                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды автомобилей).</p>
                 </div>
             </div>
         </div>
 
-        <!-- СЛАЙД 8: Стек технологий -->
+        <!-- ============ НОВЫЙ СЛАЙД 8: Результаты экспериментов ============ -->
         <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <h2>📈 Результаты 5 экспериментов</h2>
+                <p class="highlight">Серия тестов на разных нишах подтвердила стабильность и качество системы.</p>
+                <table class="experiments-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Ниша / Запрос</th>
+                            <th>Найдено</th>
+                            <th>Спарсено</th>
+                            <th>Релевантность</th>
+                            <th>Оценка</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Кофейни / спешелти + веганские десерты</td>
+                            <td>5</td>
+                            <td>3/5</td>
+                            <td>✅ Высокая</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Лофты / день рождения с караоке</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Высокая</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Лофты / юбилей с караоке</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Высокая</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Лофты / выпускной с играми</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Высокая</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Лофты / девишник с караоке</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Максимальная</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ НОВЫЙ СЛАЙД 9: Ключевые метрики ============ -->
+        <div class="slide" id="slide-9">
+            <div class="slide-content">
+                <h2>🎯 Ключевые метрики успеха</h2>
+                <p class="highlight">Количественные показатели эффективности пайплайна v1.6.</p>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">100%</div>
+                        <div class="metric-label">Успешных поисков</div>
+                        <div class="metric-sublabel">Serper.dev стабильно возвращает релевантные URL</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">92%</div>
+                        <div class="metric-label">Успешный парсинг</div>
+                        <div class="metric-sublabel">23 из 25 сайтов обработаны</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">0</div>
+                        <div class="metric-label">Галлюцинаций LLM</div>
+                        <div class="metric-sublabel">Ни одной выдуманной компании</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">~25с</div>
+                        <div class="metric-label">Среднее время</div>
+                        <div class="metric-sublabel">От запроса до готового PDF</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ НОВЫЙ СЛАЙД 10: Эволюция качества ============ -->
+        <div class="slide" id="slide-10">
+            <div class="slide-content">
+                <h2>🔄 Эволюция качества: до и после</h2>
+                <p class="highlight">Сравнение ранних итераций (v1.5) с финальной версией (v1.6).</p>
+                <div class="comparison-grid">
+                    <div class="comparison-box before">
+                        <div class="comparison-title">❌ Версия v1.5 (ранние тесты)</div>
+                        <ul>
+                            <li>Tavily/DuckDuckGo — блокировки (403, Ratelimit)</li>
+                            <li>Аварийный режим с нерелевантными URL</li>
+                            <li>LLM выдавала "Loft Rent" (аренда авто) для кофейни</li>
+                            <li>Выдуманные компании: "Кофейня Аромат", "Coffee Time"</li>
+                            <li>Заглушки: "Конкурент 2", "[Название]"</li>
+                            <li>Абсурдные рекомендации (веганские десерты для авто)</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box after">
+                        <div class="comparison-title">✅ Версия v1.6 (финал)</div>
+                        <ul>
+                            <li>Serper.dev (Google) — стабильная выдача</li>
+                            <li>Реальные сайты: loft2rent, delispace, eventsecret</li>
+                            <li>Реальные конкуренты: Циники, BAUMAN SPACE, SOK SPACE</li>
+                            <li>Точные описания: вместимость, стиль, цены, услуги</li>
+                            <li>Релевантные рекомендации для каждой ниши</li>
+                            <li>Честность LLM: сообщает о нехватке данных</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 11: Стек технологий -->
+        <div class="slide" id="slide-11">
             <div class="slide-content">
                 <h2>💻 Стек технологий</h2>
                 <div class="tech-stack">
@@ -724,24 +979,22 @@
             </div>
         </div>
 
-        <!-- СЛАЙД 9: Бизнес-ценность -->
-        <div class="slide" id="slide-9">
+        <!-- СЛАЙД 12: Бизнес-ценность -->
+        <div class="slide" id="slide-12">
             <div class="slide-content">
                 <h2>💼 Бизнес-ценность</h2>
                 <ul class="feature-list">
                     <li>🚀 <strong>Скорость:</strong> Сокращение времени на исследование рынка с часов до секунд.</li>
-                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на
-                        догадках.</li>
-                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке
-                        руководству или клиенту.</li>
+                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на догадках.</li>
+                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке руководству или клиенту.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- СЛАЙД 10: Roadmap -->
-        <div class="slide" id="slide-10">
+        <!-- СЛАЙД 13: Roadmap -->
+        <div class="slide" id="slide-13">
             <div class="slide-content">
-                <h2>🔮 Дорожная карта (v1.6+)</h2>
+                <h2>🔮 Дорожная карта (v1.7+)</h2>
                 <div class="roadmap">
                     <div class="roadmap-item done">✅ Стабильный поиск (Serper) и защита от галлюцинаций</div>
                     <div class="roadmap-item done">✅ PDF-экспорт с полной поддержкой кириллицы</div>
@@ -752,14 +1005,14 @@
             </div>
         </div>
 
-        <!-- СЛАЙД 11: Заключение -->
-        <div class="slide" id="slide-11">
+        <!-- СЛАЙД 14: Заключение -->
+        <div class="slide" id="slide-14">
             <div class="slide-content center-content">
                 <h2>Спасибо за внимание!</h2>
                 <p class="highlight">Проект полностью работоспособен, масштабируем и готов к использованию.</p>
                 <div class="author-block">
                     <p class="author">Сергей Дмитриев</p>
-                    <p class="date">GitHub: https://github.com/saikttech/Competitor_analyzer_Docker_1.5_web</p>
+                    <p class="date">GitHub: github.com/your-username/Competitor-Analyzer-MAX</p>
                 </div>
                 <p class="highlight" style="margin-top: 30px;">Готов ответить на ваши вопросы!</p>
             </div>
@@ -775,7 +1028,7 @@
 
     <!-- Счетчик -->
     <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">11</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">14</span>
     </div>
 
     <script>
@@ -785,7 +1038,7 @@
             const nextBtn = document.getElementById('nextBtn');
             const currentSlideEl = document.getElementById('currentSlide');
             const totalSlidesEl = document.getElementById('totalSlides');
-
+            
             let currentIndex = 0;
             const totalSlides = slides.length;
 
@@ -838,5 +1091,4 @@
         });
     </script>
 </body>
-
 </html>
