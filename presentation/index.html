@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Competitor Analyzer v1.5 - AI Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        /* Анимированный фон с сеткой */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Светящиеся орбы на фоне */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            z-index: 0;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .glow-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #00ffff;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .glow-orb-2 {
+            width: 350px;
+            height: 350px;
+            background: #a855f7;
+            bottom: -100px;
+            left: -100px;
+            animation-delay: 5s;
+        }
+
+        .glow-orb-3 {
+            width: 300px;
+            height: 300px;
+            background: #ec4899;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        /* Контейнер презентации */
+        .presentation-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Слайды */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(100px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            padding: 40px 80px;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            pointer-events: all;
+            z-index: 10;
+        }
+
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+            text-align: left;
+            position: relative;
+        }
+
+        .center-content {
+            text-align: center;
+        }
+
+        /* Типографика */
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00ffff 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.3);
+            }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00ffff, #a855f7, transparent);
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        p,
+        li {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(168, 85, 247, 0.1));
+            border-left: 4px solid #00ffff;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        /* Первый слайд (Титульный) */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            color: #0a0a0f;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            }
+        }
+
+        .author-block {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .author {
+            font-size: 1.8rem;
+            color: #a855f7;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+        }
+
+        .date {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+        }
+
+        /* Списки */
+        .feature-list,
+        .steps-list {
+            list-style: none;
+        }
+
+        .feature-list li,
+        .steps-list li {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #00ffff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover,
+        .steps-list li:hover {
+            background: rgba(0, 255, 255, 0.05);
+            transform: translateX(10px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Диаграммы */
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .flow-item {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(168, 85, 247, 0.1));
+            padding: 25px 35px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .flow-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .flow-item.highlight-box {
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            color: #0a0a0f;
+            border: none;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #00ffff;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            animation: arrowPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: translateX(10px);
+            }
+        }
+
+        /* Сетки */
+        .architecture-grid,
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .arch-box,
+        .challenge {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .arch-box::before,
+        .challenge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .arch-box:hover::before,
+        .challenge:hover::before {
+            left: 100%;
+        }
+
+        .arch-box:hover,
+        .challenge:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .challenge h3 {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .challenge p {
+            font-size: 1.1rem;
+            color: #a8e6cf;
+        }
+
+        /* Демо блок */
+        .demo-box {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #a8e6cf;
+            box-shadow: 0 0 30px rgba(168, 230, 207, 0.2);
+        }
+
+        .demo-box blockquote {
+            font-style: italic;
+            margin: 20px 0;
+            color: #e0e0e0;
+            padding-left: 20px;
+            border-left: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .success-note {
+            color: #a8e6cf;
+            font-weight: bold;
+            margin-top: 20px;
+            text-shadow: 0 0 10px rgba(168, 230, 207, 0.5);
+        }
+
+        /* Стек технологий */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tech-category {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(168, 85, 247, 0.05));
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+            border-color: #00ffff;
+        }
+
+        .tech-category h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .tech-category span {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-category span:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Roadmap */
+        .roadmap-item {
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-item.done {
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.15), rgba(168, 230, 207, 0.05));
+            border-left: 4px solid #a8e6cf;
+            box-shadow: 0 0 15px rgba(168, 230, 207, 0.2);
+        }
+
+        .roadmap-item.todo {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #ffd700;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .roadmap-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Навигация */
+        .nav-arrows {
+            position: fixed;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 100;
+        }
+
+        .nav-arrow {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(168, 85, 247, 0.1));
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            color: #00ffff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .nav-arrow:hover {
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            color: #0a0a0f;
+            border-color: #00ffff;
+            transform: scale(1.15);
+            box-shadow: 0 0 35px rgba(0, 255, 255, 0.7);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Счетчик */
+        .slide-counter {
+            position: fixed;
+            bottom: 35px;
+            right: 45px;
+            font-size: 1.3rem;
+            color: rgba(0, 255, 255, 0.7);
+            z-index: 100;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .architecture-grid,
+            .challenges-grid,
+            .tech-stack {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .nav-arrows {
+                right: 20px;
+            }
+
+            .nav-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Светящиеся орбы -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Контейнер презентации -->
+    <div class="presentation-container">
+
+        <!-- СЛАЙД 1: Титульный -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content">
+                <div class="badge">v1.5</div>
+                <h1>RAG Competitor Analyzer</h1>
+                <h2>Автоматизированный AI-пайплайн для глубокого анализа конкурентов с генерацией PDF-отчётов</h2>
+                <div class="author-block">
+                    <p class="author">Автор: <strong>Сергей Дмитриев</strong></p>
+                    <p class="date">2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 2: Проблема -->
+        <div class="slide" id="slide-2">
+            <div class="slide-content">
+                <h2>🎯 Проблема</h2>
+                <ul class="feature-list">
+                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение,
+                        структурирование).</li>
+                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.
+                    </li>
+                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не
+                        адаптированы под специфические ниши.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 3: Решение -->
+        <div class="slide" id="slide-3">
+            <div class="slide-content">
+                <h2>💡 Наше решение</h2>
+                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты
+                    и генерирует структурированный бизнес-отчёт.</p>
+                <div class="flow-diagram">
+                    <div class="flow-item">Запрос (Ниша + Гео + Детали)</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-item">AI-Аналитик (RAG Пайплайн)</div>
+                    <div class="flow-arrow">➔</div>
+                    <div class="flow-item highlight-box">Готовый PDF-отчёт</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 4: Архитектура -->
+        <div class="slide" id="slide-4">
+            <div class="slide-content">
+                <h2>🏗 Архитектура системы</h2>
+                <div class="architecture-grid">
+                    <div class="arch-box">🎨 Frontend: Streamlit</div>
+                    <div class="arch-box">⚙️ Backend: FastAPI + Celery + Redis</div>
+                    <div class="arch-box">🤖 AI: OpenAI (ProxyAPI) + Serper.dev</div>
+                    <div class="arch-box">🗄️ Data: PostgreSQL (pgvector)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 5: Этапы пайплайна -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <h2>⚙️ Этапы RAG-пайплайна</h2>
+                <ol class="steps-list">
+                    <li><strong>🔍 Поиск:</strong> Каскадный поиск (Serper.dev → DuckDuckGo → Fallback).</li>
+                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.
+                    </li>
+                    <li><strong>🧠 Анализ:</strong> Отправка очищенных данных в LLM со строгим системным промтом.</li>
+                    <li><strong>📄 Экспорт:</strong> Рендеринг отчёта в PDF с полной поддержкой кириллицы.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 6: Инженерные вызовы -->
+        <div class="slide" id="slide-6">
+            <div class="slide-content">
+                <h2>🛡️ Инженерные вызовы и решения</h2>
+                <div class="challenges-grid">
+                    <div class="challenge">
+                        <h3>❌ Блокировки поисковиков (403, Ratelimit)</h3>
+                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search
+                            API).</p>
+                    </div>
+                    <div class="challenge">
+                        <h3>❌ Блокировки парсинга (HTTP 403)</h3>
+                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка
+                            под Chrome 110.</p>
+                    </div>
+                    <div class="challenge">
+                        <h3>❌ Галлюцинации LLM (выдумка конкурентов)</h3>
+                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до
+                            <strong>0.2</strong>.</p>
+                    </div>
+                    <div class="challenge">
+                        <h3>❌ Квадратики (■■■■) вместо русского текста в PDF</h3>
+                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong>
+                            через ReportLab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 7: Демонстрация результата -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <h2>📊 Демонстрация результата</h2>
+                <p class="highlight">Система выдает релевантные, а не выдуманные данные.</p>
+                <div class="demo-box">
+                    <p><em>Пример из отчёта по нише "Кофейни с веганскими десертами":</em></p>
+                    <blockquote>
+                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты:
+                        <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское
+                        меню)."
+                    </blockquote>
+                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды
+                        автомобилей).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 8: Стек технологий -->
+        <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <h2>💻 Стек технологий</h2>
+                <div class="tech-stack">
+                    <div class="tech-category">
+                        <h3>Frontend</h3>
+                        <span>Streamlit</span><span>Markdown</span><span>xhtml2pdf</span>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Backend</h3>
+                        <span>FastAPI</span><span>Celery</span><span>Redis</span>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Data & AI</h3>
+                        <span>Serper.dev</span><span>curl-cffi</span><span>OpenAI</span>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Infra</h3>
+                        <span>Docker</span><span>PostgreSQL</span><span>VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 9: Бизнес-ценность -->
+        <div class="slide" id="slide-9">
+            <div class="slide-content">
+                <h2>💼 Бизнес-ценность</h2>
+                <ul class="feature-list">
+                    <li>🚀 <strong>Скорость:</strong> Сокращение времени на исследование рынка с часов до секунд.</li>
+                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на
+                        догадках.</li>
+                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке
+                        руководству или клиенту.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 10: Roadmap -->
+        <div class="slide" id="slide-10">
+            <div class="slide-content">
+                <h2>🔮 Дорожная карта (v1.6+)</h2>
+                <div class="roadmap">
+                    <div class="roadmap-item done">✅ Стабильный поиск (Serper) и защита от галлюцинаций</div>
+                    <div class="roadmap-item done">✅ PDF-экспорт с полной поддержкой кириллицы</div>
+                    <div class="roadmap-item todo">🔜 Интеграция Playwright для сложных JS-сайтов</div>
+                    <div class="roadmap-item todo">🔜 История запросов в PostgreSQL с выводом в UI</div>
+                    <div class="roadmap-item todo">🔜 Мониторинг стоимости токенов через Langfuse</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 11: Заключение -->
+        <div class="slide" id="slide-11">
+            <div class="slide-content center-content">
+                <h2>Спасибо за внимание!</h2>
+                <p class="highlight">Проект полностью работоспособен, масштабируем и готов к использованию.</p>
+                <div class="author-block">
+                    <p class="author">Сергей Дмитриев</p>
+                    <p class="date">GitHub: https://github.com/saikttech/Competitor_analyzer_Docker_1.5_web</p>
+                </div>
+                <p class="highlight" style="margin-top: 30px;">Готов ответить на ваши вопросы!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Навигация -->
+    <div class="nav-arrows">
+        <button id="prevBtn" class="nav-arrow" title="Предыдущий слайд">❮</button>
+        <button id="nextBtn" class="nav-arrow" title="Следующий слайд">❯</button>
+    </div>
+
+    <!-- Счетчик -->
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">11</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const currentSlideEl = document.getElementById('currentSlide');
+            const totalSlidesEl = document.getElementById('totalSlides');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            totalSlidesEl.textContent = totalSlides;
+            updateSlideCounter();
+            updateButtons();
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                currentIndex = index;
+                updateSlideCounter();
+                updateButtons();
+            }
+
+            function updateSlideCounter() {
+                currentSlideEl.textContent = currentIndex + 1;
+            }
+
+            function updateButtons() {
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === totalSlides - 1;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    showSlide(currentIndex + 1);
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    showSlide(currentIndex - 1);
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+                    if (currentIndex < totalSlides - 1) {
+                        showSlide(currentIndex + 1);
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    if (currentIndex > 0) {
+                        showSlide(currentIndex - 1);
+                    }
+                }
+            });
+
+            showSlide(0);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,19 +1,19 @@
+# Секреты (НИКОГДА не коммитить!)
+.env
+.env.local
+
 # Виртуальное окружение
 .venv/
 venv/
 env/
 
-# Секреты
-.env
-.env.local
-
-# Кэш Python
+# Python кэш
 __pycache__/
 *.py[cod]
+*$py.class
 *.so
-.Python
 
-# Отчёты (не коммитим сгенерированные файлы)
+# Сгенерированные отчёты (не коммитим результаты)
 reports/*.md
 reports/*.pdf
 !reports/.gitkeep
@@ -21,14 +21,15 @@ reports/*.pdf
 # Шрифты (слишком большие для GitHub)
 fonts/*.ttf
 fonts/*.otf
+!fonts/.gitkeep
 
 # IDE
 .vscode/
 .idea/
 
-# Streamlit
-.streamlit/secrets.toml
-
-# OS
+# OS файлы
 .DS_Store
 Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
