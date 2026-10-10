@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +30,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -38,8 +39,13 @@
         }
 
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
         }
 
         /* Светящиеся орбы на фоне */
@@ -81,9 +87,19 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
         }
 
         /* Контейнер презентации */
@@ -142,8 +158,15 @@
         }
 
         @keyframes glow {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.3); }
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.3);
+            }
         }
 
         h2 {
@@ -166,7 +189,8 @@
             box-shadow: 0 0 10px #00ffff;
         }
 
-        p, li {
+        p,
+        li {
             font-size: 1.3rem;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -198,8 +222,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
-            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            }
         }
 
         .author-block {
@@ -221,11 +254,13 @@
         }
 
         /* Списки */
-        .feature-list, .steps-list {
+        .feature-list,
+        .steps-list {
             list-style: none;
         }
 
-        .feature-list li, .steps-list li {
+        .feature-list li,
+        .steps-list li {
             margin-bottom: 25px;
             padding: 15px 20px;
             background: rgba(255, 255, 255, 0.03);
@@ -234,7 +269,8 @@
             transition: all 0.3s ease;
         }
 
-        .feature-list li:hover, .steps-list li:hover {
+        .feature-list li:hover,
+        .steps-list li:hover {
             background: rgba(0, 255, 255, 0.05);
             transform: translateX(10px);
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
@@ -281,19 +317,30 @@
         }
 
         @keyframes arrowPulse {
-            0%, 100% { opacity: 1; transform: translateX(0); }
-            50% { opacity: 0.6; transform: translateX(10px); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: translateX(10px);
+            }
         }
 
         /* Сетки */
-        .architecture-grid, .challenges-grid {
+        .architecture-grid,
+        .challenges-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-top: 30px;
         }
 
-        .arch-box, .challenge {
+        .arch-box,
+        .challenge {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             padding: 25px;
             border-radius: 12px;
@@ -303,7 +350,8 @@
             overflow: hidden;
         }
 
-        .arch-box::before, .challenge::before {
+        .arch-box::before,
+        .challenge::before {
             content: '';
             position: absolute;
             top: 0;
@@ -314,11 +362,13 @@
             transition: left 0.5s ease;
         }
 
-        .arch-box:hover::before, .challenge:hover::before {
+        .arch-box:hover::before,
+        .challenge:hover::before {
             left: 100%;
         }
 
-        .arch-box:hover, .challenge:hover {
+        .arch-box:hover,
+        .challenge:hover {
             border-color: #00ffff;
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
             transform: translateY(-5px);
@@ -431,7 +481,7 @@
         }
 
         /* ============ НОВЫЕ СТИЛИ ДЛЯ СЛАЙДОВ ЭКСПЕРИМЕНТОВ ============ */
-        
+
         /* Таблица экспериментов */
         .experiments-table {
             width: 100%;
@@ -513,8 +563,13 @@
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .metric-card:hover {
@@ -686,34 +741,51 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .architecture-grid, .challenges-grid, .tech-stack, .metrics-grid, .comparison-grid {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .architecture-grid,
+            .challenges-grid,
+            .tech-stack,
+            .metrics-grid,
+            .comparison-grid {
                 grid-template-columns: 1fr;
             }
+
             .flow-diagram {
                 flex-direction: column;
             }
+
             .flow-arrow {
                 transform: rotate(90deg);
             }
+
             .nav-arrows {
                 right: 20px;
             }
+
             .nav-arrow {
                 width: 45px;
                 height: 45px;
                 font-size: 1.3rem;
             }
+
             .metric-number {
                 font-size: 2.5rem;
             }
+
             .experiments-table {
                 font-size: 0.85rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Светящиеся орбы -->
@@ -723,7 +795,7 @@
 
     <!-- Контейнер презентации -->
     <div class="presentation-container">
-        
+
         <!-- СЛАЙД 1: Титульный -->
         <div class="slide active" id="slide-1">
             <div class="slide-content">
@@ -742,9 +814,12 @@
             <div class="slide-content">
                 <h2>🎯 Проблема</h2>
                 <ul class="feature-list">
-                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение, структурирование).</li>
-                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.</li>
-                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не адаптированы под специфические ниши.</li>
+                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение,
+                        структурирование).</li>
+                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.
+                    </li>
+                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не
+                        адаптированы под специфические ниши.</li>
                 </ul>
             </div>
         </div>
@@ -753,7 +828,8 @@
         <div class="slide" id="slide-3">
             <div class="slide-content">
                 <h2>💡 Наше решение</h2>
-                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты и генерирует структурированный бизнес-отчёт.</p>
+                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты
+                    и генерирует структурированный бизнес-отчёт.</p>
                 <div class="flow-diagram">
                     <div class="flow-item">Запрос (Ниша + Гео + Детали)</div>
                     <div class="flow-arrow">➔</div>
@@ -783,7 +859,8 @@
                 <h2>⚙️ Этапы RAG-пайплайна</h2>
                 <ol class="steps-list">
                     <li><strong>🔍 Поиск:</strong> Каскадный поиск (Serper.dev → DuckDuckGo → Fallback).</li>
-                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.</li>
+                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.
+                    </li>
                     <li><strong>🧠 Анализ:</strong> Отправка очищенных данных в LLM со строгим системным промтом.</li>
                     <li><strong>📄 Экспорт:</strong> Рендеринг отчёта в PDF с полной поддержкой кириллицы.</li>
                 </ol>
@@ -797,19 +874,23 @@
                 <div class="challenges-grid">
                     <div class="challenge">
                         <h3>❌ Блокировки поисковиков (403, Ratelimit)</h3>
-                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search API).</p>
+                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search
+                            API).</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Блокировки парсинга (HTTP 403)</h3>
-                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка под Chrome 110.</p>
+                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка
+                            под Chrome 110.</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Галлюцинации LLM (выдумка конкурентов)</h3>
-                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до <strong>0.2</strong>.</p>
+                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до
+                            <strong>0.2</strong>.</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Квадратики (■■■■) вместо русского текста в PDF</h3>
-                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong> через ReportLab.</p>
+                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong>
+                            через ReportLab.</p>
                     </div>
                 </div>
             </div>
@@ -823,9 +904,12 @@
                 <div class="demo-box">
                     <p><em>Пример из отчёта по нише "Кофейни с веганскими десертами":</em></p>
                     <blockquote>
-                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты: <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское меню)."
+                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты:
+                        <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское
+                        меню)."
                     </blockquote>
-                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды автомобилей).</p>
+                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды
+                        автомобилей).</p>
                 </div>
             </div>
         </div>
@@ -985,8 +1069,10 @@
                 <h2>💼 Бизнес-ценность</h2>
                 <ul class="feature-list">
                     <li>🚀 <strong>Скорость:</strong> Сокращение времени на исследование рынка с часов до секунд.</li>
-                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на догадках.</li>
-                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке руководству или клиенту.</li>
+                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на
+                        догадках.</li>
+                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке
+                        руководству или клиенту.</li>
                 </ul>
             </div>
         </div>
@@ -1012,7 +1098,7 @@
                 <p class="highlight">Проект полностью работоспособен, масштабируем и готов к использованию.</p>
                 <div class="author-block">
                     <p class="author">Сергей Дмитриев</p>
-                    <p class="date">GitHub: github.com/your-username/Competitor-Analyzer-MAX</p>
+                    <p class="date">GitHub: saikttech.github.io/Competitor_analyzer_Docker_1.6_web/</p>
                 </div>
                 <p class="highlight" style="margin-top: 30px;">Готов ответить на ваши вопросы!</p>
             </div>
@@ -1038,7 +1124,7 @@
             const nextBtn = document.getElementById('nextBtn');
             const currentSlideEl = document.getElementById('currentSlide');
             const totalSlidesEl = document.getElementById('totalSlides');
-            
+
             let currentIndex = 0;
             const totalSlides = slides.length;
 
@@ -1091,4 +1177,5 @@
         });
     </script>
 </body>
+
 </html>
