@@ -131,7 +131,7 @@ docker compose up --build
 
 <div align="center">
 
-[**🌐 Открыть онлайн (GitHub Pages)**](https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web/presentation/) • [**📁 Открыть локально**](presentation/index.html)
+[**🌐 Открыть онлайн (GitHub Pages)**](https://saikttech.github.io/Competitor_analyzer_Docker_1.6_web/) • [**📁 Открыть локально**](presentation/index.html)
 
 </div>
 
