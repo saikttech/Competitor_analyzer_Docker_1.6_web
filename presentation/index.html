@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +29,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image:
+            background-image: 
                 linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -39,13 +38,8 @@
         }
 
         @keyframes gridMove {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(50px, 50px);
-            }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         /* Светящиеся орбы на фоне */
@@ -87,19 +81,9 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            33% {
-                transform: translate(30px, -30px) scale(1.1);
-            }
-
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
         /* Контейнер презентации */
@@ -158,15 +142,8 @@
         }
 
         @keyframes glow {
-
-            0%,
-            100% {
-                filter: brightness(1);
-            }
-
-            50% {
-                filter: brightness(1.3);
-            }
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
         }
 
         h2 {
@@ -189,8 +166,7 @@
             box-shadow: 0 0 10px #00ffff;
         }
 
-        p,
-        li {
+        p, li {
             font-size: 1.3rem;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -222,17 +198,8 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            }
-
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
         }
 
         .author-block {
@@ -254,13 +221,11 @@
         }
 
         /* Списки */
-        .feature-list,
-        .steps-list {
+        .feature-list, .steps-list {
             list-style: none;
         }
 
-        .feature-list li,
-        .steps-list li {
+        .feature-list li, .steps-list li {
             margin-bottom: 25px;
             padding: 15px 20px;
             background: rgba(255, 255, 255, 0.03);
@@ -269,8 +234,7 @@
             transition: all 0.3s ease;
         }
 
-        .feature-list li:hover,
-        .steps-list li:hover {
+        .feature-list li:hover, .steps-list li:hover {
             background: rgba(0, 255, 255, 0.05);
             transform: translateX(10px);
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
@@ -317,30 +281,19 @@
         }
 
         @keyframes arrowPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: translateX(10px);
-            }
+            0%, 100% { opacity: 1; transform: translateX(0); }
+            50% { opacity: 0.6; transform: translateX(10px); }
         }
 
         /* Сетки */
-        .architecture-grid,
-        .challenges-grid {
+        .architecture-grid, .challenges-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-top: 30px;
         }
 
-        .arch-box,
-        .challenge {
+        .arch-box, .challenge {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
             padding: 25px;
             border-radius: 12px;
@@ -350,8 +303,7 @@
             overflow: hidden;
         }
 
-        .arch-box::before,
-        .challenge::before {
+        .arch-box::before, .challenge::before {
             content: '';
             position: absolute;
             top: 0;
@@ -362,13 +314,11 @@
             transition: left 0.5s ease;
         }
 
-        .arch-box:hover::before,
-        .challenge:hover::before {
+        .arch-box:hover::before, .challenge:hover::before {
             left: 100%;
         }
 
-        .arch-box:hover,
-        .challenge:hover {
+        .arch-box:hover, .challenge:hover {
             border-color: #00ffff;
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
             transform: translateY(-5px);
@@ -480,8 +430,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
-        /* ============ НОВЫЕ СТИЛИ ДЛЯ СЛАЙДОВ ЭКСПЕРИМЕНТОВ ============ */
-
         /* Таблица экспериментов */
         .experiments-table {
             width: 100%;
@@ -563,13 +511,8 @@
         }
 
         @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .metric-card:hover {
@@ -685,6 +628,150 @@
             content: '✅ ';
         }
 
+        /* ============ НОВЫЕ СТИЛИ ДЛЯ СЛАЙДОВ С ОТЧЁТАМИ ============ */
+        
+        .report-slide {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .report-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .report-number {
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            color: #0a0a0f;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .report-title-block h3 {
+            font-size: 1.8rem;
+            color: #00ffff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .report-title-block .report-meta {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .report-summary {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(168, 85, 247, 0.08));
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #00ffff;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+        }
+
+        .competitors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .competitor-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            padding: 18px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .competitor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #00ffff, #a855f7);
+        }
+
+        .competitor-card:hover {
+            transform: translateY(-3px);
+            border-color: #00ffff;
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.25);
+        }
+
+        .competitor-name {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .competitor-desc {
+            font-size: 0.95rem;
+            color: #c0c0c0;
+            line-height: 1.5;
+        }
+
+        .report-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            border-radius: 25px;
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .report-link:hover {
+            background: linear-gradient(135deg, #00ffff, #a855f7);
+            color: #0a0a0f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .report-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color: #a8e6cf;
+        }
+
+        .stat-badge strong {
+            color: #00ffff;
+            margin-right: 5px;
+        }
+
         /* Навигация */
         .nav-arrows {
             position: fixed;
@@ -741,51 +828,44 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .architecture-grid,
-            .challenges-grid,
-            .tech-stack,
-            .metrics-grid,
-            .comparison-grid {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .architecture-grid, .challenges-grid, .tech-stack, .metrics-grid, .comparison-grid {
                 grid-template-columns: 1fr;
             }
-
             .flow-diagram {
                 flex-direction: column;
             }
-
             .flow-arrow {
                 transform: rotate(90deg);
             }
-
             .nav-arrows {
                 right: 20px;
             }
-
             .nav-arrow {
                 width: 45px;
                 height: 45px;
                 font-size: 1.3rem;
             }
-
             .metric-number {
                 font-size: 2.5rem;
             }
-
             .experiments-table {
                 font-size: 0.85rem;
+            }
+            .report-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .report-title-block h3 {
+                font-size: 1.4rem;
+            }
+            .competitors-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-
 <body>
 
     <!-- Светящиеся орбы -->
@@ -795,7 +875,7 @@
 
     <!-- Контейнер презентации -->
     <div class="presentation-container">
-
+        
         <!-- СЛАЙД 1: Титульный -->
         <div class="slide active" id="slide-1">
             <div class="slide-content">
@@ -814,12 +894,9 @@
             <div class="slide-content">
                 <h2>🎯 Проблема</h2>
                 <ul class="feature-list">
-                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение,
-                        структурирование).</li>
-                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.
-                    </li>
-                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не
-                        адаптированы под специфические ниши.</li>
+                    <li>⏳ <strong>Потеря времени:</strong> Ручной анализ конкурентов занимает часы (поиск, чтение, структурирование).</li>
+                    <li>🧠 <strong>Субъективность:</strong> Высокий риск упущения важных деталей и человеческий фактор.</li>
+                    <li>💸 <strong>Дорогие аналоги:</strong> Существующие решения либо слишком дороги, либо не адаптированы под специфические ниши.</li>
                 </ul>
             </div>
         </div>
@@ -828,8 +905,7 @@
         <div class="slide" id="slide-3">
             <div class="slide-content">
                 <h2>💡 Наше решение</h2>
-                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты
-                    и генерирует структурированный бизнес-отчёт.</p>
+                <p class="highlight">Система, которая за ~30 секунд самостоятельно находит конкурентов, парсит их сайты и генерирует структурированный бизнес-отчёт.</p>
                 <div class="flow-diagram">
                     <div class="flow-item">Запрос (Ниша + Гео + Детали)</div>
                     <div class="flow-arrow">➔</div>
@@ -859,8 +935,7 @@
                 <h2>⚙️ Этапы RAG-пайплайна</h2>
                 <ol class="steps-list">
                     <li><strong>🔍 Поиск:</strong> Каскадный поиск (Serper.dev → DuckDuckGo → Fallback).</li>
-                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.
-                    </li>
+                    <li><strong>🕷️ Парсинг:</strong> Умная очистка HTML с обходом защиты через <code>curl-cffi</code>.</li>
                     <li><strong>🧠 Анализ:</strong> Отправка очищенных данных в LLM со строгим системным промтом.</li>
                     <li><strong>📄 Экспорт:</strong> Рендеринг отчёта в PDF с полной поддержкой кириллицы.</li>
                 </ol>
@@ -874,23 +949,19 @@
                 <div class="challenges-grid">
                     <div class="challenge">
                         <h3>❌ Блокировки поисковиков (403, Ratelimit)</h3>
-                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search
-                            API).</p>
+                        <p>✅ <strong>Решение:</strong> Переход на стабильный <strong>Serper.dev</strong> (Google Search API).</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Блокировки парсинга (HTTP 403)</h3>
-                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка
-                            под Chrome 110.</p>
+                        <p>✅ <strong>Решение:</strong> Использование <strong>curl-cffi</strong> с подменой TLS-отпечатка под Chrome 110.</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Галлюцинации LLM (выдумка конкурентов)</h3>
-                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до
-                            <strong>0.2</strong>.</p>
+                        <p>✅ <strong>Решение:</strong> Жёсткий системный промт + снижение <code>temperature</code> до <strong>0.2</strong>.</p>
                     </div>
                     <div class="challenge">
                         <h3>❌ Квадратики (■■■■) вместо русского текста в PDF</h3>
-                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong>
-                            через ReportLab.</p>
+                        <p>✅ <strong>Решение:</strong> Программная регистрация шрифтов <strong>DejaVu Sans</strong> через ReportLab.</p>
                     </div>
                 </div>
             </div>
@@ -904,17 +975,14 @@
                 <div class="demo-box">
                     <p><em>Пример из отчёта по нише "Кофейни с веганскими десертами":</em></p>
                     <blockquote>
-                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты:
-                        <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское
-                        меню)."
+                        "На рынке кофеен в Москве существует конкуренция... Найдены реальные конкуренты: <strong>Циники</strong> (веганское кафе с двумя точками в Москве, разнообразное веганское меню)."
                     </blockquote>
-                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды
-                        автомобилей).</p>
+                    <p class="success-note">✅ Никаких выдуманных компаний или нерелевантных данных (вроде аренды автомобилей).</p>
                 </div>
             </div>
         </div>
 
-        <!-- ============ НОВЫЙ СЛАЙД 8: Результаты экспериментов ============ -->
+        <!-- СЛАЙД 8: Результаты экспериментов -->
         <div class="slide" id="slide-8">
             <div class="slide-content">
                 <h2>📈 Результаты 5 экспериментов</h2>
@@ -933,30 +1001,6 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Кофейни / спешелти + веганские десерты</td>
-                            <td>5</td>
-                            <td>3/5</td>
-                            <td>✅ Высокая</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Лофты / день рождения с караоке</td>
-                            <td>5</td>
-                            <td>5/5</td>
-                            <td>✅ Высокая</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Лофты / юбилей с караоке</td>
-                            <td>5</td>
-                            <td>5/5</td>
-                            <td>✅ Высокая</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
                             <td>Лофты / выпускной с играми</td>
                             <td>5</td>
                             <td>5/5</td>
@@ -964,11 +1008,35 @@
                             <td>⭐⭐⭐⭐⭐</td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td>2</td>
                             <td>Лофты / девишник с караоке</td>
                             <td>5</td>
                             <td>5/5</td>
                             <td>✅ Максимальная</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Лофты / мальчишник с караоке</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Высокая</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Лофты / день рождения с караоке</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Высокая</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Лофты / вечеринка с караоке</td>
+                            <td>5</td>
+                            <td>5/5</td>
+                            <td>✅ Высокая</td>
                             <td>⭐⭐⭐⭐⭐</td>
                         </tr>
                     </tbody>
@@ -976,11 +1044,254 @@
             </div>
         </div>
 
-        <!-- ============ НОВЫЙ СЛАЙД 9: Ключевые метрики ============ -->
+        <!-- ============ СЛАЙД 9: Пример отчёта №1 — Выпускной ============ -->
         <div class="slide" id="slide-9">
+            <div class="slide-content report-slide">
+                <div class="report-header">
+                    <div class="report-number">1</div>
+                    <div class="report-title-block">
+                        <h3>Лофты для выпускного с играми</h3>
+                        <div class="report-meta">Ниша: аренда лофт • Гео: Москва • 5 конкурентов найдено</div>
+                    </div>
+                </div>
+
+                <div class="report-summary">
+                    📊 <strong>Резюме рынка:</strong> На рынке аренды лофтов для выпускного в Москве представлено множество разнообразных предложений с различными особенностями и ценами. Рынок насыщен агрегаторами и специализированными площадками.
+                </div>
+
+                <div class="competitors-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-name">Reveltime.ru</div>
+                        <div class="competitor-desc">Более 700 лофтов с высоким рейтингом. Проекторы, караоке, бары, тематические зоны.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Loft2rent.ru</div>
+                        <div class="competitor-desc">Большой выбор лофтов для различных мероприятий, прозрачные условия аренды.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Sfloft.ru</div>
+                        <div class="competitor-desc">Уютные и стильные лофты, удобное расположение. Профессиональный сервис, кейтеринг.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Loftforparty.ru</div>
+                        <div class="competitor-desc">Стильные лофты для вечеринок. Караоке, игровые приставки, проекторы.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Lofthall.ru</div>
+                        <div class="competitor-desc">Просторные залы с аутентичным декором. Оборудование премиум-класса.</div>
+                    </div>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat-badge"><strong>5/5</strong> сайтов спарсено</div>
+                    <div class="stat-badge"><strong>5</strong> реальных конкурентов</div>
+                    <div class="stat-badge"><strong>0</strong> галлюцинаций</div>
+                </div>
+
+                <a href="https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web/blob/main/reports/report_55e95c8e.md" target="_blank" class="report-link">
+                    📄 Открыть полный отчёт: report_55e95c8e.md
+                </a>
+            </div>
+        </div>
+
+        <!-- ============ СЛАЙД 10: Пример отчёта №2 — Девичник ============ -->
+        <div class="slide" id="slide-10">
+            <div class="slide-content report-slide">
+                <div class="report-header">
+                    <div class="report-number">2</div>
+                    <div class="report-title-block">
+                        <h3>Лофты для девичника с караоке</h3>
+                        <div class="report-meta">Ниша: аренда лофт • Гео: Москва • 5 конкурентов найдено</div>
+                    </div>
+                </div>
+
+                <div class="report-summary">
+                    📊 <strong>Резюме рынка:</strong> На рынке аренды лофтов для девичников с караоке в Москве представлено несколько компаний, предлагающих разнообразные интерьеры и услуги. Максимальная детализация отчёта.
+                </div>
+
+                <div class="competitors-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-name">SOK SPACE — Лофт Рассвет</div>
+                        <div class="competitor-desc">Итальянский лофт с верандой. Театральный декор, караоке, диваны, журнальные столики.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Izmailov Loft — Лофт Диско</div>
+                        <div class="competitor-desc">Уютный лофт с фотозонами. Идеально подходит для девичника, караоке.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Norrlandloft</div>
+                        <div class="competitor-desc">Лофт в скандинавском стиле. Кальяны, стильная зона, уютная атмосфера.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Олег Лофт</div>
+                        <div class="competitor-desc">Музыкальный лофт с караоке, светомузыкой, барной стойкой.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Мемори Плейс — Классик</div>
+                        <div class="competitor-desc">Элегантный лофт в классическом стиле. Стильная мебель, акцентное освещение.</div>
+                    </div>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat-badge"><strong>5/5</strong> сайтов спарсено</div>
+                    <div class="stat-badge"><strong>5</strong> реальных конкурентов</div>
+                    <div class="stat-badge"><strong>0</strong> галлюцинаций</div>
+                </div>
+
+                <a href="https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web/blob/main/reports/report_9c6b05b0.md" target="_blank" class="report-link">
+                    📄 Открыть полный отчёт: report_9c6b05b0.md
+                </a>
+            </div>
+        </div>
+
+        <!-- ============ СЛАЙД 11: Пример отчёта №3 — Мальчишник ============ -->
+        <div class="slide" id="slide-11">
+            <div class="slide-content report-slide">
+                <div class="report-header">
+                    <div class="report-number">3</div>
+                    <div class="report-title-block">
+                        <h3>Лофты для мальчишника с караоке</h3>
+                        <div class="report-meta">Ниша: аренда лофт • Гео: Москва • 5 конкурентов найдено</div>
+                    </div>
+                </div>
+
+                <div class="report-summary">
+                    📊 <strong>Резюме рынка:</strong> На рынке аренды лофтов в Москве с караоке представлено большое количество разнообразных предложений. Конкуренты предлагают уникальные тематические атмосферы для мужских компаний.
+                </div>
+
+                <div class="competitors-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-name">LOFT 2 RENT — Гавайи Лофт</div>
+                        <div class="competitor-desc">Двухэтажный лофт с летней тропической атмосферой. Подходит для вечеринок и корпоративов.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">MSK PLACE — Diamond Loft</div>
+                        <div class="competitor-desc">Лофт с большими окнами. Дизайн в стиле каллиграфии и стрит-арта.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">БАНКА — Лофт АУДИЕНЦИЯ</div>
+                        <div class="competitor-desc">Лофт с верандой и крышей на территории дизайн-завода Флакон.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">BAUMAN SPACE — FUTURE</div>
+                        <div class="competitor-desc">Тёмный лофт с неоном и картинами. Футуристическая атмосфера.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Мемори Плэйс — Вегас</div>
+                        <div class="competitor-desc">Атмосферный лофт с акцентным дизайном. Караоке и неоновая вывеска.</div>
+                    </div>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat-badge"><strong>5/5</strong> сайтов спарсено</div>
+                    <div class="stat-badge"><strong>5</strong> реальных конкурентов</div>
+                    <div class="stat-badge"><strong>0</strong> галлюцинаций</div>
+                </div>
+
+                <a href="https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web/blob/main/reports/report_55eae93c.md" target="_blank" class="report-link">
+                    📄 Открыть полный отчёт: report_55eae93c.md
+                </a>
+            </div>
+        </div>
+
+        <!-- ============ СЛАЙД 12: Пример отчёта №4 — День рождения ============ -->
+        <div class="slide" id="slide-12">
+            <div class="slide-content report-slide">
+                <div class="report-header">
+                    <div class="report-number">4</div>
+                    <div class="report-title-block">
+                        <h3>Лофты на день рождения с караоке</h3>
+                        <div class="report-meta">Ниша: аренда лофт • Гео: Москва • 3 конкурента найдено</div>
+                    </div>
+                </div>
+
+                <div class="report-summary">
+                    📊 <strong>Резюме рынка:</strong> На рынке аренды лофтов в Москве с караоке представлено несколько компаний, предлагающих разнообразные тематические залы для проведения мероприятий. Точная детализация с ценами.
+                </div>
+
+                <div class="competitors-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-name">BAUMAN SPACE — METAL</div>
+                        <div class="competitor-desc">Стильный индустриальный лофт с холодной эстетикой металла. До 20 человек, от 400 ₽.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">MSK PLACE — Budda loft</div>
+                        <div class="competitor-desc">Лофт в стиле Марокко с уютной верандой и грилем. До 20 человек, от 1500 ₽.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Мемори Плэйс — Тиффани</div>
+                        <div class="competitor-desc">Изысканный лофт с мебелью, светомузыкой, караоке и диско-шаром. До 18 человек, от 2000 ₽.</div>
+                    </div>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat-badge"><strong>5/5</strong> сайтов спарсено</div>
+                    <div class="stat-badge"><strong>3</strong> реальных конкурента</div>
+                    <div class="stat-badge"><strong>0</strong> галлюцинаций</div>
+                    <div class="stat-badge"><strong>💰</strong> указаны цены</div>
+                </div>
+
+                <a href="https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web/blob/main/reports/report_db5f8ac6.md" target="_blank" class="report-link">
+                    📄 Открыть полный отчёт: report_db5f8ac6.md
+                </a>
+            </div>
+        </div>
+
+        <!-- ============ СЛАЙД 13: Пример отчёта №5 — Вечеринка ============ -->
+        <div class="slide" id="slide-13">
+            <div class="slide-content report-slide">
+                <div class="report-header">
+                    <div class="report-number">5</div>
+                    <div class="report-title-block">
+                        <h3>Лофты для вечеринок с караоке</h3>
+                        <div class="report-meta">Ниша: аренда лофт • Гео: Москва • 5 конкурентов найдено</div>
+                    </div>
+                </div>
+
+                <div class="report-summary">
+                    📊 <strong>Резюме рынка:</strong> На рынке аренды лофтов для вечеринок с караоке в Москве представлено несколько компаний, предлагающих разнообразные услуги и площадки. Каждый конкурент имеет уникальную атмосферу.
+                </div>
+
+                <div class="competitors-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-name">LOFT 2 RENT</div>
+                        <div class="competitor-desc">Разнообразные лофты под мероприятия с караоке, террасами, мангалами и атмосферным интерьером.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">WOSTOK</div>
+                        <div class="competitor-desc">Лофт с азиатской атмосферой, высокими потолками и караоке.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">BOGEMA — PALMA</div>
+                        <div class="competitor-desc">Шикарный лофт с караоке, топовым звуком и стильным интерьером возле метро.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">ZONE ECLIPSE</div>
+                        <div class="competitor-desc">Просторный лофт с VIP комнатой, атмосферным неоном и караоке.</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="competitor-name">Мемори Плэйс — Дримс</div>
+                        <div class="competitor-desc">Клубный лофт с караоке, отличной акустикой и фотозоной.</div>
+                    </div>
+                </div>
+
+                <div class="report-stats">
+                    <div class="stat-badge"><strong>5/5</strong> сайтов спарсено</div>
+                    <div class="stat-badge"><strong>5</strong> реальных конкурентов</div>
+                    <div class="stat-badge"><strong>0</strong> галлюцинаций</div>
+                </div>
+
+                <a href="https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web/blob/main/reports/report_d392ef3f.md" target="_blank" class="report-link">
+                    📄 Открыть полный отчёт: report_d392ef3f.md
+                </a>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 14: Ключевые метрики -->
+        <div class="slide" id="slide-14">
             <div class="slide-content">
                 <h2>🎯 Ключевые метрики успеха</h2>
-                <p class="highlight">Количественные показатели эффективности пайплайна v1.6.</p>
+                <p class="highlight">Количественные показатели эффективности пайплайна v1.6 по всем 5 экспериментам.</p>
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-number">100%</div>
@@ -988,9 +1299,9 @@
                         <div class="metric-sublabel">Serper.dev стабильно возвращает релевантные URL</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-number">92%</div>
+                        <div class="metric-number">100%</div>
                         <div class="metric-label">Успешный парсинг</div>
-                        <div class="metric-sublabel">23 из 25 сайтов обработаны</div>
+                        <div class="metric-sublabel">25 из 25 сайтов обработаны</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-number">0</div>
@@ -1006,8 +1317,8 @@
             </div>
         </div>
 
-        <!-- ============ НОВЫЙ СЛАЙД 10: Эволюция качества ============ -->
-        <div class="slide" id="slide-10">
+        <!-- СЛАЙД 15: Эволюция качества -->
+        <div class="slide" id="slide-15">
             <div class="slide-content">
                 <h2>🔄 Эволюция качества: до и после</h2>
                 <p class="highlight">Сравнение ранних итераций (v1.5) с финальной версией (v1.6).</p>
@@ -1038,8 +1349,8 @@
             </div>
         </div>
 
-        <!-- СЛАЙД 11: Стек технологий -->
-        <div class="slide" id="slide-11">
+        <!-- СЛАЙД 16: Стек технологий -->
+        <div class="slide" id="slide-16">
             <div class="slide-content">
                 <h2>💻 Стек технологий</h2>
                 <div class="tech-stack">
@@ -1063,22 +1374,20 @@
             </div>
         </div>
 
-        <!-- СЛАЙД 12: Бизнес-ценность -->
-        <div class="slide" id="slide-12">
+        <!-- СЛАЙД 17: Бизнес-ценность -->
+        <div class="slide" id="slide-17">
             <div class="slide-content">
                 <h2>💼 Бизнес-ценность</h2>
                 <ul class="feature-list">
                     <li>🚀 <strong>Скорость:</strong> Сокращение времени на исследование рынка с часов до секунд.</li>
-                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на
-                        догадках.</li>
-                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке
-                        руководству или клиенту.</li>
+                    <li>🎯 <strong>Объективность:</strong> Решения основаны на реальных данных с сайтов, а не на догадках.</li>
+                    <li>📄 <strong>Готовый продукт:</strong> Профессиональный PDF-документ, готовый к отправке руководству или клиенту.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- СЛАЙД 13: Roadmap -->
-        <div class="slide" id="slide-13">
+        <!-- СЛАЙД 18: Roadmap -->
+        <div class="slide" id="slide-18">
             <div class="slide-content">
                 <h2>🔮 Дорожная карта (v1.7+)</h2>
                 <div class="roadmap">
@@ -1091,14 +1400,14 @@
             </div>
         </div>
 
-        <!-- СЛАЙД 14: Заключение -->
-        <div class="slide" id="slide-14">
+        <!-- СЛАЙД 19: Заключение -->
+        <div class="slide" id="slide-19">
             <div class="slide-content center-content">
                 <h2>Спасибо за внимание!</h2>
                 <p class="highlight">Проект полностью работоспособен, масштабируем и готов к использованию.</p>
                 <div class="author-block">
                     <p class="author">Сергей Дмитриев</p>
-                    <p class="date">GitHub: saikttech.github.io/Competitor_analyzer_Docker_1.6_web/</p>
+                    <p class="date">GitHub: https://github.com/saikttech/Competitor_analyzer_Docker_1.6_web</p>
                 </div>
                 <p class="highlight" style="margin-top: 30px;">Готов ответить на ваши вопросы!</p>
             </div>
@@ -1114,7 +1423,7 @@
 
     <!-- Счетчик -->
     <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">14</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">19</span>
     </div>
 
     <script>
@@ -1124,7 +1433,7 @@
             const nextBtn = document.getElementById('nextBtn');
             const currentSlideEl = document.getElementById('currentSlide');
             const totalSlidesEl = document.getElementById('totalSlides');
-
+            
             let currentIndex = 0;
             const totalSlides = slides.length;
 
@@ -1177,5 +1486,4 @@
         });
     </script>
 </body>
-
 </html>
